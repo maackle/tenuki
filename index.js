@@ -1,3 +1,3 @@
-exports.Game = require("./lib/game").default;
-exports.Client = require("./lib/client").default;
-exports.utils = require("./lib/utils").default;
+exports.Game = require("./lib/game");
+exports.Client = require("./lib/client");
+exports.utils = require("./lib/utils");
