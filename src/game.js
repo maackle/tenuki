@@ -15,7 +15,7 @@ const VALID_GAME_OPTIONS = [
   "_hooks",
   "fuzzyStonePlacement",
   "renderer",
-  "freeHandicapPlacement"
+  "freeHandicapPlacement",
 ];
 
 const Game = function(options = {}) {
@@ -25,7 +25,8 @@ const Game = function(options = {}) {
   this.boardSize = null;
   this._moves = [];
   this.callbacks = {
-    postRender: function() {}
+    postRender: function() {},
+    postMove: function() {},
   };
   this._boardElement = options["element"];
   this._defaultScoring = "territory";
@@ -115,7 +116,8 @@ Game.prototype = {
           if (this.isOver()) {
             this.toggleDeadAt(y, x);
           } else {
-            this.playAt(y, x);
+            const ok = this.playAt(y, x);
+            if (ok) this.callbacks.postMove({x, y});
           }
         },
 

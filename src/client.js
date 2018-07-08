@@ -6,11 +6,11 @@ const Client = function(options = {}) {
 };
 
 Client.prototype = {
-  _setup: function({ player, gameOptions, hooks }) {
+  _setup: function({ player, gameOptions={}, hooks }) {
     this._player = player;
     this._hooks = hooks;
 
-    if (this._player !== "black" && this._player !== "white") {
+    if (this._player !== "black" && this._player !== "white" && this._player !== "observer") {
       throw new Error("Player must be either black or white, but was given: " + this._player);
     }
 

@@ -1,7 +1,7 @@
 import utils from "./utils";
 
 const Renderer = function(boardElement, { hooks, options }) {
-  this.INTERSECTION_GAP_SIZE = 28;
+  this.INTERSECTION_GAP_SIZE = 36;
   this.GUTTER_MARGIN = this.INTERSECTION_GAP_SIZE - 3;
   this.BASE_MARGIN = this.INTERSECTION_GAP_SIZE - 10;
   this.hasCoordinates = boardElement.hasAttribute("data-include-coordinates");
